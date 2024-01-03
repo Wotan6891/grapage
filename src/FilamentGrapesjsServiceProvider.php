@@ -16,10 +16,11 @@ class FilamentGrapesjsServiceProvider extends PackageServiceProvider
             ->hasViews()
             ->hasAssets();
     }
+
     public function packageBooted()
     {
         if (class_exists(\Filament\FilamentServiceProvider::class)) {
-            Filament::serving(function() {
+            Filament::serving(function () {
                 Filament::registerScripts($this->getScripts(), true);
                 Filament::registerStyles($this->getStyles());
             });
@@ -34,11 +35,12 @@ class FilamentGrapesjsServiceProvider extends PackageServiceProvider
             'filament-grapesjs' => __DIR__ . '/../resources/dist/js/grapes.js',
         ];
     }
+
     public function getStyles(): array
     {
-        return  [
+        return [
             'grapesjs' => __DIR__ . '/../resources/dist/css/grapes.min.css',
-            'filament-grapesjs' => __DIR__ . '/../resources/dist/css/grapes.css'
+            'filament-grapesjs' => __DIR__ . '/../resources/dist/css/grapes.css',
         ];
     }
 }
